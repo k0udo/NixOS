@@ -46,7 +46,6 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-
   # SDDM Greeter
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
@@ -75,14 +74,17 @@
     pulse.enable = true;
   };
 
+  # Enable experimental features
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Define a user account.
   users.users.jeff = {
     isNormalUser = true;
     description = "jeff";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
+      firefox-devedition
       brave
-      librewolf
       vscodium
       git
       bitwarden
@@ -100,9 +102,9 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    environment.systemPackages = [
+    pkgs.libsForQt5.qt5.qtquickcontrols2
+    pkgs.libsforqt5.qt5.qtgraphicaleffects
   ];
 
   # List services that you want to enable:
