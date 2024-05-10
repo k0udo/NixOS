@@ -19,11 +19,11 @@
   networking.networkmanager.enable = true;
 
   # Enable Bluetooth
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot  
+  # hardware.bluetooth.enable = true; # enables support for Bluetooth
+  # hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot  
 
   # Enable Thunderbolt
-  services.hardware.bolt.enable = true;  
+  # services.hardware.bolt.enable = true;  
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -49,7 +49,6 @@
   # SDDM Greeter
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
-  services.displayManager.sddm.theme = "${import ./sddm-theme.nix {inherit pkgs;}}";
   
   # Enable the KDE Plasma Desktop Environment.
   services.desktopManager.plasma6.enable = true;
@@ -61,7 +60,7 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # services.printing.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -75,7 +74,7 @@
   };
 
   # Enable experimental features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Define a user account.
   users.users.jeff = {
@@ -84,7 +83,6 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox-devedition
-      brave
       vscodium
       git
       bitwarden
@@ -103,8 +101,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
     environment.systemPackages = [
-    pkgs.libsForQt5.qt5.qtquickcontrols2
-    pkgs.libsforqt5.qt5.qtgraphicaleffects
+
   ];
 
   # List services that you want to enable:
