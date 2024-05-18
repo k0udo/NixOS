@@ -1,15 +1,29 @@
 {
-  description = "A very basic flake";
+  description = "Home Manager configuration of jeff";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    # Specify the source of Home Manager and Nixpkgs.
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs }: {
+  outputs = { nixpkgs, home-manager, ... }:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      homeConfigurations."jeff" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
 
-    packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
+        # Specify your home configuration modules here, for example,
+        # the path to your home.nix.
+        modules = [ ./home.nix ];
 
-    packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
-
-  };
+        # Optionally use extraSpecialArgs
+        # to pass through arguments to home.nix
+      };
+    };
 }
