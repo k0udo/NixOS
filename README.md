@@ -12,7 +12,6 @@
 - https://github.com/nix-community/home-manager
 - does this rebuild separate of my os rebuilds?
 
-
 # Flakes
 
 
@@ -23,10 +22,8 @@
 # Currnet Structure & Target Architecture
 - Config layout is fairly simple and code in files is fairly dense, I should look at other configs to get some inspiration on sorting my project 
 
-
 # Pre-requisites
 sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 sudo nix-channel --update
-
 [Look into automating pre-deployment steps]

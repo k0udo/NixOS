@@ -7,7 +7,6 @@
       <home-manager/nixos>
     ];
 
-
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
@@ -48,18 +47,17 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system and Configure keymap in X11 
   services.xserver = {
     enable = true;
     xkb.layout = "us";
     xkb.variant = "";
   };
-  # SDDM Greeter
+  
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
   };
-  # Enable the KDE Plasma Desktop Environment.
+
   services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     plasma-browser-integration
@@ -68,16 +66,13 @@
     oxygen
     ];
 
-  # Enable CUPS to print documents.
   services.printing.enable = true;
   
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Nerd Fonts
   fonts.packages = with pkgs; [ (nerdfonts.override {fonts=["FiraCode" "DroidSansMono"];})];
 
-  # ZSH
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -120,8 +115,9 @@
       vmware-horizon-client
       vscode
       wget
+      wine
+      vlc
       yakuake
-      meslo-lgs-nf-unstable
     ];
   };
 
