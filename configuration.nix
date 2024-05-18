@@ -15,8 +15,10 @@
   # Enable networking
   networking.networkmanager.enable = true;
   # Enable Bluetooth
+  
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot  
+
   # Enable Thunderbolt
   # services.hardware.bolt.enable = true;  
 
@@ -58,7 +60,7 @@
 
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # services.printing.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -71,8 +73,7 @@
     pulse.enable = true;
   };
 
-  # Enable experimental features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Nerd Fonts
   fonts.packages = with pkgs; [ (nerdfonts.override {fonts=["FiraCode"];})];
@@ -93,7 +94,6 @@
     shellAliases = {
     ll = "ls -l";
     update = "sudo nixos-rebuild switch -I nixos-config=/home/jeff/Repos/nixos/configuration.nix";
-
     };   
   };
 
@@ -125,15 +125,11 @@
     ];
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
     environment.systemPackages = with pkgs; [
-
   ];
 
   system.stateVersion = "23.11";
-
 }
+
