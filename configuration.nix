@@ -7,21 +7,31 @@
       <home-manager/nixos>
     ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  # Define your hostname.
-  networking.hostName = "onix"; 
-  # Enable networking
-  networking.networkmanager.enable = true;
-  # Enable Bluetooth
-  
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot  
 
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
+  networking = {
+    hostName = "onix"; 
+    networkmanager.enable = true;
+  };
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  }; 
   # Enable Thunderbolt
   # services.hardware.bolt.enable = true;  
-
+  # Enable sound with pipewire.
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
   # Select internationalisation properties.
@@ -52,28 +62,16 @@
   # Enable the KDE Plasma Desktop Environment.
   services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
-  plasma-browser-integration
-  elisa
-  kate
-  oxygen
-];
-
+    plasma-browser-integration
+    elisa
+    kate
+    oxygen
+    ];
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
-  # nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Nerd Fonts
   fonts.packages = with pkgs; [ (nerdfonts.override {fonts=["FiraCode"];})];
