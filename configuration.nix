@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
       <home-manager/nixos>
     ];
 
@@ -12,17 +12,17 @@
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
+
   networking = {
     hostName = "onix"; 
     networkmanager.enable = true;
   };
+
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
   }; 
-  # Enable Thunderbolt
-  # services.hardware.bolt.enable = true;  
-  # Enable sound with pipewire.
+
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -32,9 +32,9 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  # Set your time zone.
+
   time.timeZone = "America/Los_Angeles";
-  # Select internationalisation properties.
+
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
@@ -69,12 +69,13 @@
     ];
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
+  services.printing.enable = true;
+  
+  nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Nerd Fonts
-  fonts.packages = with pkgs; [ (nerdfonts.override {fonts=["FiraCode"];})];
+  fonts.packages = with pkgs; [ (nerdfonts.override {fonts=["FiraCode" "DroidSansMono"];})];
 
   # ZSH
   programs.zsh = {
@@ -120,12 +121,13 @@
       vscode
       wget
       yakuake
+      meslo-lgs-nf-unstable
     ];
   };
 
-  nixpkgs.config.allowUnfree = true;
 
-    environment.systemPackages = with pkgs; [
+
+  environment.systemPackages = with pkgs; [
   ];
 
   system.stateVersion = "23.11";
