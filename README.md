@@ -1,32 +1,17 @@
 # To-Do
-- Covert system to be Flakes based 
-- set up home-manager config to be modular and contain my personal customizations
-- Document processes and workflow
-- Set up Flakes output to function in a simple structure (calls to  home / system config)
-  - Documentation for getting started is horrible, I'm stuck as hail
+- home-manager integration and deployment
+- begin organizing system into modules
   
+# home-manager and flakes
+- Look at other home.nix configs to shape an idea of what other people are segmenting out of their base configuration file.. currently thinking ( system | user ) level separation first then I can turn parts of the code into modules over time.
+- the way I'm declaring my user in home-manager is incorrect, need to pick this apart (might find clues in other repos)
 
-# home-manager
-- need to find and understand how/what the set up looks like when making home-manager rebuild off of a nixos-rebuild 
-
-# Flakes
-- `nix flake check`
-- `nix flake update` - updates dependencies 
-- `sudo nixos-rebuild switch --flake /home/jeff/Repos/nixos# (need to learn how flakes are named))`
-- I understand how to point to it for a rebuild now - now I need to understand how to set up my outputs to behave in the way I'm expecting
-- also I'm seeing use cases where people are naming their flakes instead of using default - I need to learn how this works
-- also seeing single git repos manage multiple hosts, I'd be interested how this is implemented - this might uncover how to call home manager (assuming my current path doesn't rebuild it how I expect)
-
-# Customization Notes
-- zsh is declared in configuartion.nix > move this into home.nix?
-  -  
-- sddm in kde6? might need to find kcm6 and frankenstein it into my config
-
-# Current Structure & Target Architecture
-- Config layout is fairly simple and code in files is fairly dense, I should look at other configs to get some inspiration on sorting my project 
+# Cool ideas - look into these:
+- ryan4yin has private repos with wallpapers he retrieves in his config via ssh in his flake.nix 
+- Another user had a flake based implementation with separate configs based on host and can be specified with .#(hostname) syntax
+- on paper, home-manager should be able to make portable personal configs independent of distros so additional fiddling to be done to make this happen
 
 # Pre-requisites
-sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 sudo nix-channel --update
 [Look into automating pre-deployment steps]

@@ -4,7 +4,6 @@
   imports =
     [
       /etc/nixos/hardware-configuration.nix
-      <home-manager/nixos>
     ];
 
   boot.loader = {
@@ -91,7 +90,7 @@
       flake-rebuild = "sudo nixos-rebuild switch --flake '/home/jeff/Repos/nixos#onix' --impure";
       flake-update = "nix flake update";
     };   
-  };
+  };  
 
   # Define a user account.
   users.users.jeff = {
@@ -102,19 +101,15 @@
     packages = with pkgs; [
       bitwarden
       brave
-      colorls
       discord
       firefox-devedition
-      git
       github-desktop
       libreoffice-qt
       obsidian
       pcsx2
       spotify
-      unzip
       vmware-horizon-client
       vscode
-      wget
       vlc
       yakuake
     ];
