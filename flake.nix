@@ -13,22 +13,28 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs {inherit system;};
     in {
-      #homeConfigurations."jeff" = home-manager.lib.homeManagerConfiguration {
-      #  inherit pkgs;
-#
-      #  # Specify your home configuration modules here, for example,
-      #  # the path to your home.nix.
-      #  modules = [ ./home.nix ];
-#
-      #  # Optionally use extraSpecialArgs
-      #  # to pass through arguments to home.nix
-      #};
+      nixosConfigurations.onix = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+        modules = [
+          # Import the previous configuration.nix we used,
+          # so the old configuration file still takes effect
+          ./configuration.nix
+          ];
+        };
+      homeConfigurations."jeff" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        # Specify your home configuration modules here, for example,
+        # the path to your home.nix.
+        modules = [ ./home.nix ];
+        # Optionally use extraSpecialArgs
+        # to pass through arguments to home.nix
+      };
     inherit system;
       modules = [
         catppuccin.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
         {
-          home-manager.users.user = {
+          home-manager.users.jeff = {
             imports = [
               ./home.nix
               catppuccin.homeManagerModules.catppuccin

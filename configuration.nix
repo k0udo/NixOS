@@ -5,6 +5,7 @@
     [
       /etc/nixos/hardware-configuration.nix
       <home-manager/nixos>
+      ./home.nix
     ];
 
   boot.loader = {
@@ -73,23 +74,25 @@
 
   fonts.packages = with pkgs; [ (nerdfonts.override {fonts=["FiraCode" "DroidSansMono"];})];
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    zsh-autoenv.enable = true;
-    syntaxHighlighting.enable = true;
-    enableLsColors = true;
-    ohMyZsh = {
-        enable = true;
-        theme = "agnoster";
-        plugins = [ "git" "history-substring-search" ];
-    };
-    shellAliases = {
-    ll = "ls -l";
-    update = "sudo nixos-rebuild switch -I nixos-config=/home/jeff/Repos/nixos/configuration.nix";
-    };   
-  };
+  # --- PENDING DELETE (Moved to Home.nix) ---
+  # programs.zsh = {
+  #   enable = true;
+  #   enableCompletion = true;
+  #   autosuggestions.enable = true;
+  #   zsh-autoenv.enable = true;
+  #   syntaxHighlighting.enable = true;
+  #   enableLsColors = true;
+  #   ohMyZsh = {
+  #       enable = true;
+  #       theme = "agnoster";
+  #       plugins = [ "git" "history-substring-search" ];
+  #   };
+  #   shellAliases = {
+  #   ls = "colorls";
+  #   ll = "ls -l";
+  #   update = "sudo nixos-rebuild switch -I nixos-config=/home/jeff/Repos/nixos/configuration.nix";
+  #   };   
+  # };
 
   # Define a user account.
   users.users.jeff = {
@@ -101,6 +104,7 @@
       bitwarden
       blender
       brave
+      colorls
       discord
       firefox-devedition
       gimp-with-plugins
