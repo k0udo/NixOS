@@ -5,28 +5,7 @@
   # manage.
   home.username = "jeff";
   home.homeDirectory = "/home/jeff";
-  catppuccin.flavour = "macchiato";
   home.stateVersion = "23.11";
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    zsh-autoenv.enable = true;
-    syntaxHighlighting.enable = true;
-    enableLsColors = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "agnoster";
-      plugins = [ "git" "history-substring-search" ];
-    };
-    shellAliases = {
-      ls = "colorls";
-      ll = "ls -l";
-      update = "sudo nixos-rebuild switch -I nixos-config=/home/jeff/Repos/nixos/configuration.nix";
-      update-flake = "sudo nixos-rebuild switch --flake '/home/jeff/Repos/nixos#default'"
-      };   
-    };
   
   # The home.packages option allows you to install Nix packages into your
   # environment.

@@ -5,7 +5,6 @@
     [
       /etc/nixos/hardware-configuration.nix
       <home-manager/nixos>
-      ./home.nix
     ];
 
   boot.loader = {
@@ -74,25 +73,26 @@
 
   fonts.packages = with pkgs; [ (nerdfonts.override {fonts=["FiraCode" "DroidSansMono"];})];
 
-  # --- PENDING DELETE (Moved to Home.nix) ---
-  # programs.zsh = {
-  #   enable = true;
-  #   enableCompletion = true;
-  #   autosuggestions.enable = true;
-  #   zsh-autoenv.enable = true;
-  #   syntaxHighlighting.enable = true;
-  #   enableLsColors = true;
-  #   ohMyZsh = {
-  #       enable = true;
-  #       theme = "agnoster";
-  #       plugins = [ "git" "history-substring-search" ];
-  #   };
-  #   shellAliases = {
-  #   ls = "colorls";
-  #   ll = "ls -l";
-  #   update = "sudo nixos-rebuild switch -I nixos-config=/home/jeff/Repos/nixos/configuration.nix";
-  #   };   
-  # };
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    zsh-autoenv.enable = true;
+    syntaxHighlighting.enable = true;
+    enableLsColors = true;
+    ohMyZsh = {
+      enable = true;
+      theme = "agnoster";
+      plugins = [ "git" "history-substring-search" ];
+    };
+    shellAliases = {
+      ls = "colorls";
+      ll = "ls -l";
+      # update = "sudo nixos-rebuild switch -I nixos-config=/home/jeff/Repos/nixos/configuration.nix";
+      flake-rebuild = "sudo nixos-rebuild switch --flake '/home/jeff/Repos/nixos#default' --impure";
+      flake-update = "nix flake update -I /home/jeff/Repos/nixos#default";
+    };   
+  };
 
   # Define a user account.
   users.users.jeff = {
@@ -102,15 +102,12 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       bitwarden
-      blender
       brave
       colorls
       discord
       firefox-devedition
-      gimp-with-plugins
       git
       github-desktop
-      home-manager
       libreoffice-qt
       obsidian
       pcsx2
@@ -119,7 +116,6 @@
       vmware-horizon-client
       vscode
       wget
-      wine
       vlc
       yakuake
     ];

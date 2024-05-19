@@ -1,21 +1,16 @@
 # To-Do
-- further integrate home-manager, goal is to have a good base config to transfer into my desktop PC
-  - Document pre-requirements - channel switch + a stable vanilla config to jump to (test portability via VM)
-  - Need to grasp and solidy understanding of how Nix Flakes are used and what the command flow looks like when trying to update packages (and if there are any other useful commands to keep in mind)  
-- figure out what goes in home.nix and figure out if this requires a seperate rebuild command in a NixOS module installation
-- figure out how to declare customizations in-code to minimize time needed to customize
-- work to replace hard paths with system variables
-- figure out secrets management and how to reliably deploy my configs across different systems
-- I've seen some people use their flakes to pull down programs from repos and code in the config steps needed
-  - its a pita to go through the first time but I think I can figure this out 
-- Need to figure out how to set up Flake file outputs to behave how I'm expecting (and how to set it up so its legible)
+- Covert system to be Flakes based 
+- set up home-manager config to be modular and contain my personal customizations
+- Document processes and workflow
+- Set up Flakes output to function in a simple structure (calls to  home / system config)
+  - Documentation for getting started is horrible, I'm stuck as hail
+  
 
 # home-manager
-- home-manager init also generates flake.nix
-- https://github.com/nix-community/home-manager
-- does this rebuild separate of my os rebuilds?
+- need to find and understand how/what the set up looks like when making home-manager rebuild off of a nixos-rebuild 
 
 # Flakes
+- `nix flake check`
 - `nix flake update` - updates dependencies 
 - `sudo nixos-rebuild switch --flake /home/jeff/Repos/nixos# (need to learn how flakes are named))`
 - I understand how to point to it for a rebuild now - now I need to understand how to set up my outputs to behave in the way I'm expecting
