@@ -88,9 +88,8 @@
     shellAliases = {
       ls = "colorls";
       ll = "ls -l";
-      # update = "sudo nixos-rebuild switch -I nixos-config=/home/jeff/Repos/nixos/configuration.nix";
-      flake-rebuild = "sudo nixos-rebuild switch --flake '/home/jeff/Repos/nixos#default' --impure";
-      flake-update = "nix flake update -I /home/jeff/Repos/nixos#default";
+      flake-rebuild = "sudo nixos-rebuild switch --flake '/home/jeff/Repos/nixos#onix' --impure";
+      flake-update = "nix flake update";
     };   
   };
 
