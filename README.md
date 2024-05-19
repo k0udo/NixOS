@@ -27,7 +27,7 @@
   -  
 - sddm in kde6? might need to find kcm6 and frankenstein it into my config
 
-# Currnet Structure & Target Architecture
+# Current Structure & Target Architecture
 - Config layout is fairly simple and code in files is fairly dense, I should look at other configs to get some inspiration on sorting my project 
 
 # Pre-requisites
