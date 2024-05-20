@@ -72,6 +72,14 @@
 
   fonts.packages = with pkgs; [ (nerdfonts.override {fonts=["FiraCode" "DroidSansMono"];})];
 
+  users.users.jeff = {
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    description = "jeff";
+    extraGroups = [ "networkmanager" "wheel" ];
+    # packages = with pkgs; [];
+  };
+  
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -86,36 +94,10 @@
     };
     shellAliases = {
       ls = "colorls";
-      ll = "ls -l";
       flake-rebuild = "sudo nixos-rebuild switch --flake '/home/jeff/Repos/nixos#onix' --impure";
       flake-update = "nix flake update";
     };   
   };  
-
-  # Define a user account.
-  users.users.jeff = {
-    isNormalUser = true;
-    shell = pkgs.zsh;
-    description = "jeff";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      bitwarden
-      brave
-      discord
-      firefox-devedition
-      github-desktop
-      libreoffice-qt
-      obsidian
-      pcsx2
-      spotify
-      vmware-horizon-client
-      vscode
-      vlc
-      yakuake
-    ];
-  };
-
-
 
   environment.systemPackages = with pkgs; [
   ];
