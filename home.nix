@@ -45,9 +45,9 @@
     burpsuite
     gobuster
     exploitdb
+    caido
 
     # CLI / Terminal Applications
-    colorls
     unzip
     wget
     yakuake

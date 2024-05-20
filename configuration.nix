@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, catppuccin, ... }:
 
 {
   imports =
@@ -52,6 +52,7 @@
     xkb.variant = "";
   };
   
+
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
@@ -77,16 +78,13 @@
     shell = pkgs.zsh;
     description = "jeff";
     extraGroups = [ "networkmanager" "wheel" ];
-    # packages = with pkgs; [];
   };
   
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     autosuggestions.enable = true;
-    zsh-autoenv.enable = true;
     syntaxHighlighting.enable = true;
-    enableLsColors = true;
     ohMyZsh = {
       enable = true;
       theme = "agnoster";
@@ -98,8 +96,10 @@
       flake-update = "nix flake update";
     };   
   };  
-
+  
   environment.systemPackages = with pkgs; [
+    kdePackages.sddm-kcm
+    colorls
   ];
 
   system.stateVersion = "23.11";
