@@ -100,6 +100,8 @@
   environment.systemPackages = with pkgs; [
     kdePackages.sddm-kcm
     colorls
+    unzip
+    wget
   ];
 
   system.stateVersion = "23.11";

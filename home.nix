@@ -35,6 +35,7 @@
     vlc
     vmware-horizon-client
     vscode
+    yakuake
     
     # Gaming
     pcsx2
@@ -46,11 +47,6 @@
     gobuster
     exploitdb
     caido
-
-    # CLI / Terminal Applications
-    unzip
-    wget
-    yakuake
 
   ];
   programs.home-manager.enable = true;
