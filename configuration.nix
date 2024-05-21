@@ -1,4 +1,4 @@
-{ config, pkgs, catppuccin, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
@@ -80,6 +80,10 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
   
+  services.tailscale = {
+    enable = true;
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -99,6 +103,7 @@
   
   environment.systemPackages = with pkgs; [
     kdePackages.sddm-kcm
+    kdePackages.partitionmanager
     colorls
     unzip
     wget

@@ -39,6 +39,7 @@
     
     # Gaming
     pcsx2
+    steam
 
     # Security Tools
     nmap
@@ -50,6 +51,19 @@
 
   ];
   programs.home-manager.enable = true;
+
+  programs.librewolf = {
+    enable = true;
+    # Enable WebGL, cookies and history
+    settings = {
+      "webgl.disabled" = false;
+      "privacy.resistFingerprinting" = false;
+      "privacy.clearOnShutdown.history" = false;
+      "privacy.clearOnShutdown.cookies" = false;
+      "network.cookie.lifetimePolicy" = 0;
+      "identity.fxaccounts.enabled" = true;
+    };
+  };
 
   # TODO - Add own global configs
   programs.git = {
