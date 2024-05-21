@@ -38,7 +38,7 @@
     yakuake
     
     # Gaming
-    pcsx2
+    pcsx2 # App and loading game works (with standard setup) - TODO additional config needed for xbox controller
     # steam # TODO find and document additional requirements for steam currently crashes on launch
 
     # Security Tools TODO - move these tools into a separate deploy workflow
