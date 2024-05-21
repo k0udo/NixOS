@@ -105,6 +105,7 @@
     kdePackages.sddm-kcm
     kdePackages.partitionmanager
     colorls
+    p7zip
     unzip
     wget
   ];
