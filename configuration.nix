@@ -96,7 +96,7 @@
     };
     shellAliases = {
       ls = "colorls";
-      flake-rebuild = "sudo nixos-rebuild switch --flake '/home/jeff/Repos/nixos#onix' --impure";
+      flake-rebuild = "sudo nixos-rebuild switch --flake github:k0udo/nixos --impure";
       flake-update = "nix flake update";
     };   
   };  
