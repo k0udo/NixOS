@@ -41,13 +41,13 @@
     pcsx2
     steam
 
-    # Security Tools
-    nmap
-    wireshark
-    burpsuite
-    gobuster
-    exploitdb
-    caido
+    # Security Tools TODO - move these tools into a separate deploy workflow
+    # nmap
+    # wireshark
+    # burpsuite
+    # gobuster
+    # exploitdb
+    # caido
 
   ];
   programs.home-manager.enable = true;
@@ -61,7 +61,6 @@
       "privacy.clearOnShutdown.history" = false;
       "privacy.clearOnShutdown.cookies" = false;
       "network.cookie.lifetimePolicy" = 0;
-      "identity.fxaccounts.enabled" = true;
     };
   };
 
