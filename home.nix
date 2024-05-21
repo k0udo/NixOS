@@ -39,7 +39,7 @@
     
     # Gaming
     pcsx2
-    steam
+    # steam # TODO find and document additional requirements for steam currently crashes on launch
 
     # Security Tools TODO - move these tools into a separate deploy workflow
     # nmap
