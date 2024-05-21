@@ -14,7 +14,7 @@ sudo nixos-rebuild switch --flake github:k0udo/nixos --impure
   - Impure flag is used to point to the default /etc/nixos path for your hardware configuration 
 
 # Description
-- My skeleton Nix set up (Under construction!)
+- My skeleton NixOS set up (Under construction!)
 
 # Planned
 - Component Modularization
