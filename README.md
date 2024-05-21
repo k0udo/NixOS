@@ -16,7 +16,8 @@ environment.systemPackages = with pkgs; [
   curl
   ];
 ```
-Adding this line will enable the commands needed to begin using flakes. Next, rebuild your system by opening a terminal and running:
+Adding this line will enable the commands needed to begin using flakes. **Flakes are considered an experimental feature and may be subject to breaking changes use at your own risk**
+Next, rebuild your system by opening a terminal and running:
 ```
 sudo nixos-rebuild switch
 ```
