@@ -1,7 +1,20 @@
 # Installation
+Great Resource: https://nixos-and-flakes.thiscute.world/nixos-with-flakes/nixos-with-flakes-enabled 
+
 Add the following into your /etc/nixos/configuration.nix
 ```
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+# Flakes clones its dependencies through the git command,
+# so git must be installed first
+
+environment.systemPackages = with pkgs; [
+  # Flakes clones its dependencies through the git command,
+  # so git must be installed first
+  git
+  wget
+  curl
+  ];
 ```
 Adding this line will enable the commands needed to begin using flakes. Next, rebuild your system by opening a terminal and running:
 ```
