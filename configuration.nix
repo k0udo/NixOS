@@ -75,6 +75,7 @@
 
   users.users.jeff = {
     isNormalUser = true;
+    shell = pkgs.zsh;
     description = "jeff";
     extraGroups = [ "networkmanager" "wheel" ];
   };
@@ -83,6 +84,7 @@
     enable = true;
   };
 
+  programs.zsh.enable = true;
   # programs.zsh = {
   #  enable = true;
   #  enableCompletion = true;

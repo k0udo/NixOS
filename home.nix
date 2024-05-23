@@ -3,7 +3,6 @@
 {
   home.username = "jeff";
   home.stateVersion = "23.11";
-  #home.shell = pkgs.zsh;
   
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -85,7 +84,5 @@
       flake-rebuild = "sudo nixos-rebuild switch --flake github:k0udo/nixos --impure";
       flake-update = "nix flake update";
     };
-    setAsDefaultShell = true;
-  };
-
+  };  
 }
