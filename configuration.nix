@@ -75,7 +75,6 @@
 
   users.users.jeff = {
     isNormalUser = true;
-    shell = pkgs.zsh;
     description = "jeff";
     extraGroups = [ "networkmanager" "wheel" ];
   };
