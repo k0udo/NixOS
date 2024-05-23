@@ -3,7 +3,7 @@
 {
   home.username = "jeff";
   home.stateVersion = "23.11";
-  home.shell = pkgs.zsh;
+  #home.shell = pkgs.zsh;
   
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
