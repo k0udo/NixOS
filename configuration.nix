@@ -84,22 +84,22 @@
     enable = true;
   };
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "agnoster";
-      plugins = [ "git" "history-substring-search" ];
-    };
-    shellAliases = {
-      ls = "colorls";
-      flake-rebuild = "sudo nixos-rebuild switch --flake github:k0udo/nixos --impure";
-      flake-update = "nix flake update";
-    };   
-  };  
+  # programs.zsh = {
+  #  enable = true;
+  #  enableCompletion = true;
+  #  autosuggestions.enable = true;
+  #  syntaxHighlighting.enable = true;
+  #  ohMyZsh = {
+  #    enable = true;
+  #    theme = "agnoster";
+  #   plugins = [ "git" "history-substring-search" ];
+  #  };
+  #  shellAliases = {
+  #    ls = "colorls";
+  #    flake-rebuild = "sudo nixos-rebuild switch --flake github:k0udo/nixos --impure";
+  #    flake-update = "nix flake update";
+  #  };   
+  #};  
   
   environment.systemPackages = with pkgs; [
     kdePackages.sddm-kcm
