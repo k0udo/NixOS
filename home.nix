@@ -71,4 +71,19 @@
     # userName = "K0udo";
     # userEmail = "noreply@gamenthings.net";
   };
+
+  programs.zsh = {
+    enable = true;
+    oh-my-zsh = {
+      enable = true;
+      theme = "agnoster";
+      plugins = [ "git" "history-substring-search" ];
+    };
+    shellAliases = {
+      ls = "colorls";
+      flake-rebuild = "sudo nixos-rebuild switch --flake github:k0udo/nixos --impure";
+      flake-update = "nix flake update";
+    };
+  };
+
 }
