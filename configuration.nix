@@ -73,6 +73,8 @@
 
   fonts.packages = with pkgs; [ (nerdfonts.override {fonts=["FiraCode" "DroidSansMono"];})];
 
+  programs.zsh.enable = true;
+
   users.users.jeff = {
     isNormalUser = true;
     shell = pkgs.zsh;
@@ -84,7 +86,7 @@
     enable = true;
   };
 
-  programs.zsh.enable = true;
+
   # programs.zsh = {
   #  enable = true;
   #  enableCompletion = true;
